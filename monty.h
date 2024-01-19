@@ -1,7 +1,7 @@
-#ifndef MONTY
-#define MONTY
+#ifndef MONTY_H
+#define MONTY_H
 
-#define  _POSIX_C_SOURCE 200809L
+#define _POSIX_C_SOURCE 200809L
 #define _GNU_SOURCE
 
 #include <stdlib.h>
@@ -14,7 +14,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>
 
 /**
  * struct stack_s - Doubly linked list representation of a stack (or queue)
@@ -28,10 +27,10 @@
 
 typedef struct stack_s
 {
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
-} stack_
+    int n;
+    struct stack_s *prev;
+    struct stack_s *next;
+} stack_t;
 
 /**
  * struct instruction_s - Opcode and its corresponding function
@@ -44,10 +43,9 @@ typedef struct stack_s
 
 typedef struct instruction_s
 {
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+    char *opcode;
+    void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
 
 /**
  * struct global_vars - Globally useful variables rolled into one.
@@ -57,26 +55,23 @@ typedef struct instruction_s
 
 typedef struct global_vars
 {
-	stack_t **top;
-	instruction_t **ops;
+    stack_t **top;
+    instruction_t **ops;
 } glob_vars;
 
 extern glob_vars globv;
 
-
 /**
  * struct var_s - Struct to contain the main variables of the Monty interpreter.
  * @queue: Flag to determine if in stack vs queue mode.
- * @stack_len: Length of the sta
-*/
+ * @stack_len: Length of the stack
+ */
 
- typedef struct var_s
+typedef struct var_s
 {
-	int queue;
-	size_t stack_len;
+    int queue;
+    size_t stack_len;
 } var_t;
-
-var_t var;
 
 extern var_t var;
 
@@ -106,4 +101,4 @@ void r_r(stack_t **stack, unsigned int line_number);
 void stak(stack_t **stack, unsigned int line_number);
 void que(stack_t **stack, unsigned int line_number);
 
-#endif /* MONTY */
+#endif /* MONTY_H */
