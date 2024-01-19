@@ -96,9 +96,9 @@ void m_l(stack_t **stack, unsigned int line_number);
 void m_d(stack_t **stack, unsigned int line_number);
 void pc_r(stack_t **stack, unsigned int line_number);
 void ps_r(stack_t **stack, unsigned int line_number);
-void r_l(stack_t **stack, unsigned int line_number);
+/*void r_l(stack_t **stack, unsigned int line_number);
 void r_r(stack_t **stack, unsigned int line_number);
 void stak(stack_t **stack, unsigned int line_number);
 void que(stack_t **stack, unsigned int line_number);
-
+*/
 #endif /* MONTY_H */

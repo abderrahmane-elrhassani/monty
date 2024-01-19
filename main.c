@@ -2,7 +2,6 @@
 
 glob_vars globv;
 
-
 /**
  * main - Entry point for Monty bytecode interpreter.
  * @ac: Number of command line arguments.
@@ -21,27 +20,27 @@ glob_vars globv;
  */
 int main(int ac, char **av)
 {
-	stack_t *head;
+    stack_t *head;
 
-	s_i(&head);
-	if (ac != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-	f_r(av[1], &head);
-	exit(EXIT_SUCCESS);
+    s_i(&head);
+    if (ac != 2)
+    {
+        fprintf(stderr, "USAGE: monty file\n");
+        exit(EXIT_FAILURE);
+    }
+    f_r(av[1], &head);
+    exit(EXIT_SUCCESS);
 }
+
 /**
  * f_r - Processes the entire Monty opcode file.
  * @filename: String name of the Monty opcode file.
  * @stack: Double pointer to the top of the stack data structure.
  * Return: Returns an error code or success.
  **/
-
 int f_r(char *filename, stack_t **stack)
 {
-	size_t len;
+   size_t len;
 	ssize_t read;
 	unsigned int line_number = 0;
 	char *line = NULL;
@@ -71,6 +70,7 @@ int f_r(char *filename, stack_t **stack)
 	free(line);
 	fclose(fp);
 	return (EXIT_SUCCESS);
+ /* Function implementation...*/
 }
 
 /**
@@ -79,29 +79,26 @@ int f_r(char *filename, stack_t **stack)
  *
  * Return: No return.
  **/
-
 void s_i(stack_t **head)
 {
-	*head = NULL;
-	globv.top = head;
+    *head = NULL;
+    globv.top = head;
 }
 
 /**
- * f_a- Frees all dynamically allocated memory.
+ * f_a - Frees all dynamically allocated memory.
  *
  * Return: No return.
  **/
-
 void f_a(void)
 {
-	stack_t *tmp1, *tmp2 = NULL;
+    stack_t *tmp1, *tmp2 = NULL;
 
-	tmp1 = *(globv.top);
-	/* printf("glob.top->%p\n",  (void*)glob.top); */
-	while (tmp1 != NULL)
-	{
-		tmp2 = tmp1->next;
-		free(tmp1);
-		tmp1 = tmp2;
-	}
+    tmp1 = *(globv.top);
+    while (tmp1 != NULL)
+    {
+        tmp2 = tmp1->next;
+        free(tmp1);
+        tmp1 = tmp2;
+    }
 }

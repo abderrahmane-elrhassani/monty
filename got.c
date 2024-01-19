@@ -13,10 +13,10 @@ void got(stack_t **stack, char *op, unsigned int line_number)
     instruction_t valid_opcodes[] = {
         {"push", p_h}, {"pchar", pc_r},
         {"pall", p_l}, {"pstr", ps_r},
-        {"pint", p_t}, {"rotl", r_l},
-        {"pop", p_p}, {"rotr", r_r},
-        {"swap", s_p}, {"queue", que},
-        {"add", a_d}, {"stack", stak},
+        {"pint", p_t}, /*{"rotl", r_l},*/
+        {"pop", p_p},/* {"rotr", r_r},*/
+        {"swap", s_p},/* {"queue", que},*/
+        {"add", a_d},/* {"stack", stak},*/
         {"nop", n_p},
         {"sub", s_b},
         {"div", d_v},
